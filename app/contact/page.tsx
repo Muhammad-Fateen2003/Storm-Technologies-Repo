@@ -303,7 +303,7 @@ export default function ContactPage() {
                       disabled={isSubmitting}
                       //make width fit
                     >
-                      <SelectTrigger className="w-full bg-white/10 border-white/20 text-white backdrop-blur-sm">
+                      <SelectTrigger className="w-full bg-white/10 border-white/20 text-white backdrop-blur-sm data-[placeholder]:text-blue-300">
                         <SelectValue placeholder="Select practice size" />
                       </SelectTrigger>
                       <SelectContent>
