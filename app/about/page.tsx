@@ -42,8 +42,6 @@ export default function AboutPage() {
     "Over 30 years of continuous service",
     "98% collection success rate",
     "HIPAA compliant operations",
-    "24/7 customer support",
-    "Industry-leading technology",
   ];
 
   return (

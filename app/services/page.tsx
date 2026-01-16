@@ -317,8 +317,9 @@ export default function ServicesPage() {
                       desc: "Industry-leading collection rates that maximize your revenue",
                     },
                     {
-                      title: "24/7 Support",
-                      desc: "Round-the-clock customer support for all your billing needs",
+                      //something related to follow up
+                      title: "Proactive Claim Follow-up",
+                      desc: "Dedicated follow-up to ensure that all claim are processed and paid in a timely manner",
                     },
                   ].map((item) => (
                     <div
