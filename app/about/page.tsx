@@ -111,13 +111,23 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4 text-center">
+                  {/* Changed grid-cols-2 to grid-cols-3 to fit the middle element */}
+                  <div className="grid grid-cols-3 gap-4 text-center">
                     <div>
                       <div className="text-3xl font-bold text-teal-400 mb-1">
                         98%
                       </div>
                       <div className="text-blue-200 text-sm">Success Rate</div>
                     </div>
+
+                    {/* New Middle Section */}
+                    <div>
+                      <div className="text-3xl font-bold text-white mb-1">
+                        4-6%
+                      </div>
+                      <div className="text-blue-200 text-sm">Commission Rate</div>
+                    </div>
+
                     <div>
                       <div className="text-3xl font-bold text-blue-400 mb-1">
                         HIPAA

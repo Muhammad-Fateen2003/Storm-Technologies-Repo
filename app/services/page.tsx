@@ -158,7 +158,7 @@ export default function ServicesPage() {
       description:
         "Complete practice management services including scheduling and administration",
       features: [
-        "Appointment scheduling",
+        "Practice Optimization",
         "Administrative support",
         "Workflow optimization",
       ],
