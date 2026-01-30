@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import {
   TrendingUp,
@@ -10,6 +11,7 @@ import {
   Target,
   Heart,
   Zap,
+  ChevronRight,
 } from "lucide-react";
 
 type Stat = {
@@ -23,6 +25,7 @@ type Benefit = {
   icon: LucideIcon;
   title: string;
   desc: string;
+  color: string;
 };
 
 export default function HomePage() {
@@ -31,29 +34,29 @@ export default function HomePage() {
       icon: Award,
       value: "30+",
       label: "Years Experience",
-      color: "from-amber-400 to-amber-500",
+      color: "bg-amber-500",
     },
     {
       icon: Target,
       value: "98%",
       label: "Collection Success",
-      color: "from-teal-400 to-teal-500",
+      color: "bg-teal-500",
     },
     {
       icon: Shield,
       value: "100%",
       label: "HIPAA Compliant",
-      color: "from-green-400 to-green-500",
+      color: "bg-emerald-500",
     },
   ];
 
-  const services: string[] = [
-    "Insurance Credentialing & Enrollment",
-    "Prior Authorization Verification",
-    "Medical Billing and Coding",
-    "Claims Submission and Follow-up",
-    "Revenue Cycle Management",
-    "Denial Management",
+  const coreServices = [
+    { name: "Insurance Credentialing & Enrollment", slug: "credentialing" },
+    { name: "Prior Authorization Verification", slug: "prior-authorization" },
+    { name: "Medical Billing and Coding", slug: "medical-billing" },
+    { name: "Claims Submission and Follow-up", slug: "claims-submission" },
+    { name: "Revenue Cycle Management", slug: "revenue-cycle" },
+    { name: "Denial Management", slug: "denial-management" },
   ];
 
   const benefits: Benefit[] = [
@@ -61,215 +64,246 @@ export default function HomePage() {
       icon: TrendingUp,
       title: "Increase Revenue",
       desc: "Maximize cash flow and reduce claim denials",
+      color: "bg-teal-500",
     },
     {
       icon: Shield,
       title: "Improve Compliance",
       desc: "Reduce risk with expert billing practices",
+      color: "bg-teal-500",
     },
     {
       icon: Heart,
       title: "Patient Focus",
       desc: "Let you focus on patient care, not paperwork",
+      color: "bg-teal-500",
     },
     {
       icon: Zap,
       title: "Scalable Solutions",
       desc: "Grow your practice with flexible billing support",
+      color: "bg-teal-500",
     },
   ];
 
   return (
-    <div className="relative">
-      {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-              <Award className="w-4 h-4 text-amber-400" />
-              <span className="text-amber-400 font-medium text-sm">
-                30+ Years of Excellence
-              </span>
-            </div>
+    <div className="bg-white">
+      {/* Hero Section - Cleaner Aetna Style */}
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-32 hero-brand-strip overflow-hidden">
+        {/* Subtle decorative elements */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Medical Billing
-              <span className="bg-gradient-to-r from-amber-400 to-teal-400 bg-clip-text text-transparent block">
-                Excellence
-              </span>
-            </h1>
-
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Our mission is to help medical practices improve operational
-              efficiency and financial performance by outsourcing their billing
-              needs, so clients can focus on patient care instead of paperwork.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/contact"
-                className="bg-gradient-to-r from-amber-500 to-amber-400 text-white px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 backdrop-blur-sm border border-amber-300/30 hover:scale-105"
-              >
-                Get Started Today
-              </Link>
-
-              <a
-                href="tel:+18322363930"
-                className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/20 transition-all duration-300"
-              >
-                <Phone className="w-5 h-5" />
-                <span>Call: 832-236-3930</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 hover:bg-white/15 transition-all duration-300 group hover:scale-105">
-                  <div
-                    className={`w-16 h-16 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
-                  >
-                    <stat.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-3xl font-bold text-white mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-blue-200 text-sm font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Company Highlight */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-12 hover:bg-white/15 transition-all duration-300">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-teal-400 to-blue-500 rounded-xl flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl font-bold text-white">
-                      Founded on Core Values
-                    </h2>
-                    <div className="text-blue-200">
-                      Honesty • Transparency • Integrity
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-blue-100 text-lg leading-relaxed mb-6">
-                  As a trusted partner in medical billing for over 30 years, we
-                  deliver precise and efficient billing services. Our commitment
-                  to honesty, transparency, and integrity ensures that your
-                  practice receives the highest level of service.
-                </p>
-
-                <div className="bg-gradient-to-r from-amber-500/20 to-teal-500/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-                  <div className="text-amber-400 text-4xl font-bold mb-2">
-                    98%
-                  </div>
-                  <div className="text-white font-semibold text-lg">
-                    Collection Success Rate
-                  </div>
-                  <div className="text-blue-200 text-sm mt-2">
-                    Consistently achieving industry-leading results
-                  </div>
-                </div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left: Text Content */}
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center space-x-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-8 backdrop-blur-sm">
+                <Award className="w-4 h-4 text-amber-400" />
+                <span className="text-white font-medium text-sm">
+                  30+ Years of Excellence
+                </span>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-white mb-6">
-                  Core Services
-                </h3>
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300"
-                  >
-                    <CheckCircle className="w-5 h-5 text-teal-400 flex-shrink-0" />
-                    <span className="text-blue-100">{service}</span>
-                  </div>
-                ))}
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-[1.1]">
+                Medical Billing
+                <span className="text-[#0d9488] block mt-2">
+                  Excellence
+                </span>
+              </h1>
+
+              <p className="text-xl text-white/80 mb-10 leading-relaxed font-light">
+                Our mission is to help medical practices improve operational
+                efficiency and financial performance by outsourcing their billing
+                needs, so clients can focus on patient care instead of paperwork.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-5">
+                <Link
+                  href="/contact#contact-form"
+                  className="bg-[#0d9488] text-white px-10 py-4 rounded-xl font-bold shadow-xl shadow-teal-900/20 hover:bg-[#0f766e] transition-all duration-300 text-center"
+                >
+                  Get Started Today
+                </Link>
 
                 <Link
-                  href="/services"
-                  className="inline-block mt-4 text-amber-400 hover:text-amber-300 font-medium transition-colors duration-300"
+                  href="/contact#contact-info"
+                  className="flex items-center justify-center space-x-2 bg-white/10 border border-white/20 text-white px-10 py-4 rounded-xl font-bold hover:bg-white/20 transition-all duration-300 backdrop-blur-md"
                 >
-                  View All Services →
+                  <span>Contact Details</span>
+                  <ChevronRight size={20} />
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Benefits Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Why Choose Storm Technologies?
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Experience the difference of working with a partner who truly
-              understands medical billing
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-300 group hover:scale-105 text-center"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-teal-400 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                  <benefit.icon className="w-8 h-8 text-white" />
+            {/* Right: Modern Professional Image/Graphic */}
+            <div className="relative hidden lg:block">
+              <div className="relative aspect-square max-w-lg mx-auto">
+                {/* Decorative blob */}
+                <div className="absolute inset-0 bg-white/10 rounded-[3rem] rotate-6 backdrop-blur-sm" />
+                <div className="absolute inset-0 bg-white border border-slate-100 rounded-[3rem] shadow-2xl flex items-center justify-center p-12 translate-x-4 -translate-y-4">
+                  <div className="relative w-full h-full flex flex-col items-center justify-center text-center">
+                    <div className="w-32 h-32 relative mb-8">
+                      <Image
+                        src="/logo.png"
+                        alt="Storm Technologies"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="text-3xl font-bold text-[#1a365d] mb-3">
+                      Trusted Partner
+                    </div>
+                    <div className="text-slate-500 text-lg">
+                      in Medical Billing Since 1993
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {benefit.title}
-                </h3>
-                <p className="text-blue-200 leading-relaxed">{benefit.desc}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Grid - Aetna Inspired Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
+            {stats.map((stat, index) => (
+              <div key={index} className="card-aetna p-10 flex flex-col items-center text-center">
+                <div className={`icon-standalone mb-6 ${stat.color.includes('amber') ? 'amber' : stat.color.includes('teal') ? 'teal' : 'teal'}`}>
+                  <stat.icon size={48} strokeWidth={1.5} />
+                </div>
+                <div className="text-4xl font-bold text-[#1a365d] mb-3">
+                  {stat.value}
+                </div>
+                <div className="text-slate-500 font-medium text-lg uppercase tracking-wider text-sm">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-amber-500/20 to-teal-500/20 backdrop-blur-xl border border-white/20 rounded-3xl p-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Let&apos;s Optimize Your Revenue Cycle Today!
+      {/* Company Highlight Section */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-slate-50/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-block px-4 py-1.5 bg-teal-50 text-[#0d9488] font-bold rounded-lg text-sm uppercase tracking-wider mb-6">
+                Our Foundation
+              </div>
+              <h2 className="text-4xl font-bold text-[#1a365d] mb-8 leading-tight">
+                Founded on Core Values of
+                <span className="text-[#0d9488]"> Honesty & Integrity</span>
+              </h2>
+
+              <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                As a trusted partner in medical billing for over 30 years, we
+                deliver precise and efficient billing services. Our commitment
+                to transparency ensures that your practice receives the highest level of service.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                  <div className="text-4xl font-bold text-[#0d9488] mb-1">98%</div>
+                  <div className="text-slate-500 font-medium">Collection Success</div>
+                </div>
+                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                  <div className="text-4xl font-bold text-[#1a365d] mb-1">30+</div>
+                  <div className="text-slate-500 font-medium">Years Experience</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-[#1a365d] mb-6 flex items-center">
+                <CheckCircle className="w-6 h-6 text-[#0d9488] mr-2" />
+                Core Billing Services
+              </h3>
+              <div className="grid gap-3">
+                {coreServices.map((service, index) => (
+                  <Link
+                    key={index}
+                    href={`/services/${service.slug}`}
+                    className="flex items-center space-x-3 bg-white border border-slate-100 rounded-xl p-4 shadow-sm hover:border-[#0d9488] transition-colors group"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-[#0d9488]" />
+                    <span className="text-slate-700 font-medium group-hover:text-[#1a365d]">{service.name}</span>
+                  </Link>
+                ))}
+              </div>
+
+              <Link
+                href="/services"
+                className="link-arrow mt-6"
+              >
+                Explore all services
+                <ChevronRight className="w-5 h-5 ml-1" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section - Professional Aetna Style Cards */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#1a365d] mb-4">
+              Why Choose Storm Technologies?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+            <p className="text-xl text-slate-500 max-w-3xl mx-auto font-light">
+              Experience the difference of working with a partner who truly
+              understands the complexities of medical billing.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="card-aetna p-8 text-center"
+              >
+                <div className="icon-standalone teal mb-6">
+                  <benefit.icon size={40} strokeWidth={1.5} />
+                </div>
+                <h3 className="text-xl font-bold text-[#1a365d] mb-3">
+                  {benefit.title}
+                </h3>
+                <p className="text-slate-500 leading-relaxed text-sm">{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section - Professional & Focused */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-20 bg-slate-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-[#1a365d] rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+            {/* Decorative background circle */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 relative z-10 leading-tight">
+              Let&apos;s Optimize Your <br />
+              <span className="text-[#0d9488]">Revenue Cycle Today!</span>
+            </h2>
+            <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto relative z-10 leading-relaxed font-light">
               Join hundreds of medical practices that trust Storm Technologies
-              with their billing needs
+              with their billing and credentialing needs.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center relative z-10">
               <Link
-                href="/contact"
-                className="bg-gradient-to-r from-amber-500 to-amber-400 text-white px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 backdrop-blur-sm border border-amber-300/30 hover:scale-105"
+                href="/contact#contact-form"
+                className="bg-[#0d9488] text-white px-10 py-4 rounded-xl font-semibold shadow-lg hover:bg-[#0f766e] transition-all duration-300"
               >
                 Schedule Consultation
               </Link>
-              <a
-                href="mailto:stormtech2008@gmail.com"
-                className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/20 transition-all duration-300"
+              <Link
+                href="/contact#contact-info"
+                className="flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300"
               >
-                <Mail className="w-5 h-5" />
-                <span>Email Us</span>
-              </a>
+                <span>View Contact Details</span>
+                <ChevronRight size={20} />
+              </Link>
             </div>
           </div>
         </div>
