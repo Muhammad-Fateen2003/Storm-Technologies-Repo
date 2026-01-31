@@ -91,7 +91,7 @@ export default function HomePage() {
       {/* Hero Section - Cleaner Aetna Style */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-32 hero-brand-strip overflow-hidden">
         {/* Subtle decorative elements */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -135,14 +135,21 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: Modern Professional Image/Graphic */}
+{/* Right: Modern Professional Image/Graphic */}
             <div className="relative hidden lg:block">
-              <div className="relative aspect-square max-w-lg mx-auto">
-                {/* Decorative blob */}
-                <div className="absolute inset-0 bg-white/10 rounded-[3rem] rotate-6 backdrop-blur-sm" />
-                <div className="absolute inset-0 bg-white border border-slate-100 rounded-[3rem] shadow-2xl flex items-center justify-center p-12 translate-x-4 -translate-y-4">
+              <div className="relative aspect-square max-w-md mx-auto">
+                
+                {/* Decorative blob - subtle blue tint */}
+                <div className="absolute inset-0 bg-sky-400/10 rounded-[3rem] rotate-6 backdrop-blur-sm" />
+                
+                {/* Main Card 
+                   Changes:
+                   1. Updated gradient 'from' color to 'from-sky-300/20' (lighter blue) instead of white.
+                   2. Kept 'to-transparent' for the fade effect.
+                */}
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-300/20 to-transparent rounded-[3rem] shadow-2xl backdrop-blur-xl flex items-center justify-center p-10 translate-x-4 -translate-y-4">
                   <div className="relative w-full h-full flex flex-col items-center justify-center text-center">
-                    <div className="w-32 h-32 relative mb-8">
+                    <div className="w-28 h-28 relative mb-8">
                       <Image
                         src="/logo.png"
                         alt="Storm Technologies"
@@ -150,14 +157,15 @@ export default function HomePage() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="text-3xl font-bold text-[#1a365d] mb-3">
+                    <div className="text-3xl font-bold text-white mb-3">
                       Trusted Partner
                     </div>
-                    <div className="text-slate-500 text-lg">
+                    <div className="text-white/70 text-lg">
                       in Medical Billing Since 1993
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -279,7 +287,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="bg-[#1a365d] rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
             {/* Decorative background circle */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
 
             <h2 className="text-4xl md:text-5xl font-bold mb-6 relative z-10 leading-tight">
               Let&apos;s Optimize Your <br />
