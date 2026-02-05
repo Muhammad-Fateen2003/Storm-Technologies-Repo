@@ -2,148 +2,112 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import type { LucideIcon } from "lucide-react";
-import { Award, Heart, Shield, Users, Star } from "lucide-react";
-
-type ValueCard = {
-  icon: LucideIcon;
-  title: string;
-  desc: string;
-  color: string;
-};
+import { motion } from "framer-motion";
+import { Award, Heart, Shield, Users, CheckCircle } from "lucide-react";
 
 export default function AboutPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const values: ValueCard[] = [
+  const values = [
     {
       icon: Heart,
       title: "Honesty",
-      desc: "We believe in transparent communication and honest dealings with all our clients",
-      color: "from-red-400 to-pink-500",
+      desc: "We believe in transparent communication and honest dealings with all our clients.",
+      color: "teal",
     },
     {
       icon: Shield,
       title: "Integrity",
-      desc: "Our core values guide every business decision and client interaction",
-      color: "from-blue-400 to-teal-500",
+      desc: "Our core values guide every business decision and client interaction.",
+      color: "teal",
     },
     {
       icon: Users,
       title: "Transparency",
-      desc: "Clear reporting and open communication about your billing performance",
-      color: "from-green-400 to-emerald-500",
+      desc: "Clear reporting and open communication about your billing performance.",
+      color: "teal",
+    },
+    {
+      icon: Award,
+      title: "Excellence",
+      desc: "Consistently delivering superior service and results for our practice partners.",
+      color: "teal",
     },
   ];
 
-  const achievements: string[] = [
-    "Over 30 years of continuous service",
-    "98% collection success rate",
-    "HIPAA compliant operations",
-  ];
-
   return (
-    <div className="relative">
+    <div className="bg-blue">
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-            <Award className="w-4 h-4 text-amber-400" />
-            <span className="text-amber-400 font-medium text-sm">
-              Established 1993
-            </span>
-          </div>
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-20 hero-brand-strip overflow-hidden">
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            About
-            <span className="bg-gradient-to-r from-amber-400 to-teal-400 bg-clip-text text-transparent block">
-              Storm Technologies
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+            Our
+            <span className="text-[#0d9488] block mt-2">
+              Story
             </span>
           </h1>
-
-          <p className="text-xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
-            For over three decades, we&apos;ve been the trusted partner for
-            medical practices across the nation, combining cutting-edge
-            technology with core values of honesty, transparency, and integrity.
+          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed font-light">
+            Founded with a vision to revolutionize medical billing through
+            integrity, transparency, and unparalleled expertise since 1993.
           </p>
         </div>
       </section>
 
-      {/* Company Story */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16">
+      {/* Our Story / Founder Note */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-12 hover:bg-white/15 transition-all duration-300">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Our Story
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="card-aetna p-12 bg-white relative z-10">
+                <div className="text-[#0d9488] font-bold uppercase tracking-widest text-sm mb-6">Established 1993</div>
+                <h2 className="text-4xl font-bold text-[#1a365d] mb-8 leading-tight">
+                  Three Decades of <br />
+                  <span className="text-[#0d9488]">Billing Excellence</span>
                 </h2>
-                <p className="text-blue-100 text-lg leading-relaxed mb-6">
-                  Founded in 1993 in Houston, Texas, Storm Technologies, Inc.
-                  began with a simple mission: to help medical practices focus
-                  on what they do best – caring for patients – while we handle
-                  the complexities of medical billing and revenue cycle
-                  management.
-                </p>
-                <p className="text-blue-100 text-lg leading-relaxed mb-6">
-                  Our journey has been guided by principles of honesty,
-                  transparency, and integrity. These values aren&apos;t just
-                  words to us; they&apos;re the foundation of every client
-                  relationship and business decision we make.
-                </p>
-                <p className="text-blue-100 text-lg leading-relaxed">
-                  Today, after more than 30 years of dedicated service,
-                  we&apos;re proud to maintain a 98% collection success rate
-                  while serving medical practices nationwide.
-                </p>
+                <div className="space-y-6 text-slate-600 leading-relaxed font-light text-lg">
+                  <p>
+                    Storm Technologies was founded on the principle that medical
+                    practitioners should be able to focus on what they do best:
+                    caring for patients.
+                  </p>
+                  <p>
+                    For over 30 years, we have served as a dedicated partner to
+                    medical practices, navigating the complexities of healthcare
+                    reimbursement with honesty and precision.
+                  </p>
+                </div>
               </div>
+              {/* Decorative background element */}
+              <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-sky-200 rounded-[2.5rem] z-0" />
+            </div>
 
-              <div className="bg-gradient-to-br from-amber-500/20 to-teal-500/20 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
-                <div className="space-y-6">
-                  <div className="text-center">
-                    <div className="text-5xl font-bold text-amber-400 mb-2">
-                      30+
-                    </div>
-                    <div className="text-white font-semibold">
-                      Years of Excellence
-                    </div>
-                  </div>
-
-                  {/* Changed grid-cols-2 to grid-cols-3 to fit the middle element */}
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <div className="text-3xl font-bold text-teal-400 mb-1">
-                        98%
-                      </div>
-                      <div className="text-blue-200 text-sm">Success Rate</div>
-                    </div>
-
-                    {/* New Middle Section */}
-                    <div>
-                      <div className="text-3xl font-bold text-white mb-1">
-                        4-6%
-                      </div>
-                      <div className="text-blue-200 text-sm">Commission Rate</div>
-                    </div>
-
-                    <div>
-                      <div className="text-3xl font-bold text-blue-400 mb-1">
-                        HIPAA
-                      </div>
-                      <div className="text-blue-200 text-sm">Compliant</div>
-                    </div>
-                  </div>
-
-                  <div className="text-center pt-4 border-t border-white/20">
-                    <div className="text-white font-semibold mb-2">
-                      Houston, Texas
-                    </div>
-                    <div className="text-blue-200 text-sm">
-                      502 Bridge Crest Blvd.
-                    </div>
-                  </div>
+            <div className="grid gap-8">
+              <div className="card-aetna p-8 flex items-start space-x-6">
+                <div className="icon-standalone navy mt-1">
+                  <CheckCircle size={32} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#1a365d] mb-2">Our Mission</h3>
+                  <p className="text-slate-500 font-light">
+                    To maximize provider revenue through expert billing and
+                    unwavering commitment to client success.
+                  </p>
+                </div>
+              </div>
+              <div className="card-aetna p-8 flex items-start space-x-6">
+                <div className="icon-standalone teal mt-1">
+                  <Heart size={32} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#1a365d] mb-2">Our Vision</h3>
+                  <p className="text-slate-500 font-light">
+                    To be the most trusted name in healthcare administration,
+                    known for our integrity and results.
+                  </p>
                 </div>
               </div>
             </div>
@@ -151,92 +115,95 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16">
+      {/* Core Values Section */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Values & Principles
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Our core values form the cornerstone of our business practices and
-              client relationships
-            </p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#1a365d] mb-4">Core Values</h2>
+            <p className="text-xl text-slate-500 font-light">The principles that guide everything we do</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-300 group hover:scale-105 text-center"
+                className="card-aetna p-10 text-center"
               >
-                <div
-                  className={`w-20 h-20 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
-                >
-                  <value.icon className="w-10 h-10 text-white" />
+                <div className="icon-standalone teal mb-8">
+                  <value.icon size={48} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-xl font-bold text-[#1a365d] mb-4">
                   {value.title}
                 </h3>
-                <p className="text-blue-200 leading-relaxed">{value.desc}</p>
+                <p className="text-slate-500 font-light leading-relaxed text-sm">
+                  {value.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Achievements */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-12 hover:bg-white/15 transition-all duration-300">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Our Achievements
-              </h2>
-              <p className="text-xl text-blue-100">
-                Recognition and results that speak for themselves
-              </p>
-            </div>
+      {/* Achievements Grid Area - Infinite Carousel */}
+      <section className="relative py-16 background-sky overflow-hidden border-t border-b border-sky-200">
+        <div className="relative flex select-none">
+          <motion.div
+            className="flex space-x-24 whitespace-nowrap"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 60,
+                ease: "linear",
+              },
+            }}
+          >
+            {/* Double the items for seamless loop */}
+            {[
+              { label: "Years in Business", value: "30+" },
+              { label: "Collection Success", value: "98%" },
+              { label: "Commission Rate", value: "4-6%" },
+              { label: "Compliant", value: "HIPAA" },
+              { label: "Years in Business", value: "30+" },
+              { label: "Collection Success", value: "98%" },
+              { label: "Commission Rate", value: "4-6%" },
+              { label: "Compliant", value: "HIPAA" },
+            ].map((stat, i) => (
+              <div key={i} className="inline-block py-8 min-w-[300px] text-center">
+                <div className="text-6xl font-bold text-[#1a365d] mb-3 tracking-tighter">{stat.value}</div>
+                <div className="text-[#0d9488] uppercase tracking-[0.2em] text-xs font-bold">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {achievements.map((achievement, index) => (
-                <div
-                  key={index}
-                  className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300"
-                >
-                  <Star className="w-5 h-5 text-amber-400 flex-shrink-0" />
-                  <span className="text-blue-100">{achievement}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Faded edges */}
+          <div className="absolute top-0 left-0 h-full w-48 bg-gradient-to-r from-sky-200 to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 h-full w-48 bg-gradient-to-l from-sky-200 to-transparent z-10 pointer-events-none" />
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-amber-500/20 to-teal-500/20 backdrop-blur-xl border border-white/20 rounded-3xl p-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Join Our Family?
+      {/* CTA section */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-20 background-sky">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-[#1a365d] rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Ready to See the <br />
+              <span className="text-[#0d9488]">Storm Difference?</span>
             </h2>
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              Experience the Storm Technologies difference – where core values
-              meet medical billing excellence
+            <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+              Experience the peace of mind that comes from working with a partner
+              completely dedicated to your practice&apos;s financial health.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center mt-12">
               <Link
-                href="/contact"
-                className="bg-gradient-to-r from-amber-500 to-amber-400 text-white px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 backdrop-blur-sm border border-amber-300/30 hover:scale-105"
+                href="/contact#contact-form"
+                className="bg-[#0d9488] text-white px-10 py-4 rounded-xl font-bold shadow-lg hover:bg-[#0f766e] transition-all duration-300"
               >
-                Get Started Today
-              </Link>
-              <Link
-                href="/services"
-                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/20 transition-all duration-300"
-              >
-                View Our Services
+                Schedule Free Assessment
               </Link>
             </div>
           </div>

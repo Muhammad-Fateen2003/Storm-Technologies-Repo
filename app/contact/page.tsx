@@ -1,39 +1,21 @@
 "use client";
 
-import { useState } from "react";
-import type { LucideIcon } from "lucide-react";
+import Script from "next/script";
 import {
   Phone,
   Mail,
   MapPin,
   Clock,
-  Send,
   CheckCircle,
   Award,
   Shield,
   Star,
+  Linkedin,
 } from "lucide-react";
+import { motion } from "framer-motion";
+import type { LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-type FormData = {
-  name: string;
-  email: string;
-  phone: string;
-  practice: string;
-  practitioners: string;
-  message: string;
-};
 
 type ContactCard = {
   icon: LucideIcon;
@@ -49,32 +31,20 @@ type Feature = {
 };
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    practice: "",
-    practitioners: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-
   const contactInfo: ContactCard[] = [
     {
       icon: Phone,
       title: "Phone",
       details: "+1 832-236-3930",
       action: "tel:+18322363930",
-      color: "from-blue-400 to-blue-500",
+      color: "bg-blue-500",
     },
     {
       icon: Mail,
       title: "Email",
       details: "stormtech2008@gmail.com",
       action: "mailto:stormtech2008@gmail.com",
-      color: "from-teal-400 to-teal-500",
+      color: "bg-teal-500",
     },
     {
       icon: MapPin,
@@ -82,14 +52,21 @@ export default function ContactPage() {
       details: "502 Bridge Crest Blvd., Houston, TX 77082",
       action:
         "https://maps.google.com/?q=502+Bridge+Crest+Blvd,+Houston,+TX+77082",
-      color: "from-green-400 to-green-500",
+      color: "bg-green-500",
     },
     {
       icon: Clock,
       title: "Business Hours",
       details: "Monday - Friday: 8:00 AM - 6:00 PM CST",
       action: null,
-      color: "from-amber-400 to-amber-500",
+      color: "bg-amber-500",
+    },
+    {
+      icon: Linkedin,
+      title: "LinkedIn",
+      details: "Follow our company page",
+      action: "https://www.linkedin.com/company/storm-technologies-inc/",
+      color: "bg-blue-700",
     },
   ];
 
@@ -99,351 +76,208 @@ export default function ContactPage() {
     { icon: Shield, text: "HIPAA Compliant" },
   ];
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (isSubmitting) return;
-
-    setIsSubmitting(true);
-
-    // send to backend here
-    console.log("Form submitted:", formData);
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        practice: "",
-        practitioners: "",
-        message: "",
-      });
-    }, 3000);
-  };
-
-  const handleChange = <K extends keyof FormData>(
-    field: K,
-    value: FormData[K]
-  ) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
   return (
-    <div className="relative">
+    <div className="bg-white">
+      <Script
+        src="https://storm-technologies-inc.breely.com/embed.js?url=%2Fform%2F14180"
+        strategy="afterInteractive"
+      />
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-20 hero-brand-strip overflow-hidden">
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
             Contact
-            <span className="bg-gradient-to-r from-amber-400 to-teal-400 bg-clip-text text-transparent block">
+            <span className="text-[#0d9488] block mt-2">
               Storm Technologies
             </span>
           </h1>
 
-          <p className="text-xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
             Ready to optimize your revenue cycle? Get in touch with our medical
             billing experts for a free consultation.
           </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center"
-              >
-                <feature.icon className="w-6 h-6 text-amber-400 mx-auto mb-2" />
-                <div className="text-white text-sm font-medium">
-                  {feature.text}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Contact Information Cards */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {contactInfo.map((info, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-300 group hover:scale-105 text-center"
-              >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${info.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
-                >
-                  <info.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {info.title}
-                </h3>
+      {/* Contact Information Cards - Infinite Carousel */}
+      <section id="contact-info" className="relative py-16 background-sky overflow-hidden border-b border-sky-200 scroll-mt-24">
+        <div className="max-w-7xl mx-auto px-4 mb-10">
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm font-bold text-[#1a365d] uppercase tracking-[0.2em]">Contact Channels</h2>
+            <div className="h-px flex-1 bg-sky-200 ml-8" />
+          </div>
+        </div>
 
-                {info.action ? (
-                  <a
-                    href={info.action}
-                    target={info.action.startsWith("http") ? "_blank" : "_self"}
-                    rel={
-                      info.action.startsWith("http")
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                    className="text-blue-200 hover:text-white transition-colors duration-300 leading-relaxed"
-                  >
-                    {info.details}
-                  </a>
-                ) : (
-                  <p className="text-blue-200 leading-relaxed">
+        <div className="relative flex select-none">
+          <motion.div
+            className="flex space-x-12 whitespace-nowrap"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 80, // Much slower for readability
+                ease: "linear",
+              },
+            }}
+          >
+            {/* Double the items for seamless loop */}
+            {[...contactInfo, ...contactInfo].map((info, index) => {
+              const CardContent = (
+                <div className="flex flex-col items-center justify-center p-10 w-[380px] h-[340px] text-center">
+                  <div className={`icon-standalone teal mb-10`}>
+                    <info.icon size={48} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#1a365d] mb-6">
+                    {info.title}
+                  </h3>
+                  <p className="text-slate-500 leading-relaxed font-light whitespace-normal max-w-[280px] text-lg">
                     {info.details}
                   </p>
-                )}
-              </div>
-            ))}
-          </div>
+                </div>
+              );
+
+              return (
+                <div key={index} className="inline-block py-6">
+                  {info.action ? (
+                    <a
+                      href={info.action}
+                      target={info.action.startsWith("http") ? "_blank" : "_self"}
+                      rel={info.action.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="block card-aetna card-aetna-interactive hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 h-full group bg-white border-slate-100"
+                    >
+                      {CardContent}
+                    </a>
+                  ) : (
+                    <div className="block card-aetna h-full bg-white border-slate-100">
+                      {CardContent}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </motion.div>
+
+          {/* Faded edges for better premium feel */}
+          <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-sky-to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-sky-to-transparent z-10 pointer-events-none" />
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16">
+      {/* Form and Info Section */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-16 background-sky">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Form */}
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-12 hover:bg-white/15 transition-all duration-300">
-              <h2 className="text-3xl font-bold text-white mb-6">
-                Get Free Consultation
+          <div id="contact-form" className="grid lg:grid-cols-2 gap-16 items-start scroll-mt-24">
+            {/* Contact Form */}
+            <div className="card-aetna p-10 md:p-12 bg-white relative">
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#1a365d] rounded-l-2xl" />
+
+              <h2 className="text-3xl font-bold text-[#1a365d] mb-6">
+                Free Assessment
               </h2>
-              <p className="text-blue-200 mb-8 leading-relaxed">
+              <p className="text-slate-500 mb-10 leading-relaxed font-light">
                 Fill out the form below and we&apos;ll contact you within 24
                 hours to discuss how we can optimize your revenue cycle.
               </p>
 
-              {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-white">
-                        Full Name *
-                      </Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => handleChange("name", e.target.value)}
-                        className="bg-white/10 border-white/20 text-white placeholder:text-blue-300 backdrop-blur-sm"
-                        placeholder="Dr. John Smith"
-                        required
-                        disabled={isSubmitting}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-white">
-                        Email Address *
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleChange("email", e.target.value)}
-                        className="bg-white/10 border-white/20 text-white placeholder:text-blue-300 backdrop-blur-sm"
-                        placeholder="doctor@practice.com"
-                        required
-                        disabled={isSubmitting}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-white">
-                        Phone Number *
-                      </Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleChange("phone", e.target.value)}
-                        className="bg-white/10 border-white/20 text-white placeholder:text-blue-300 backdrop-blur-sm"
-                        placeholder="(832) 000-0000"
-                        required
-                        disabled={isSubmitting}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="practice" className="text-white">
-                        Practice Name
-                      </Label>
-                      <Input
-                        id="practice"
-                        value={formData.practice}
-                        onChange={(e) =>
-                          handleChange("practice", e.target.value)
-                        }
-                        className="bg-white/10 border-white/20 text-white placeholder:text-blue-300 backdrop-blur-sm"
-                        placeholder="Your Medical Practice"
-                        disabled={isSubmitting}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="practitioners" className="text-white">
-                      Number of Practitioners
-                    </Label>
-                    <Select
-                      value={formData.practitioners}
-                      onValueChange={(value) =>
-                        handleChange("practitioners", value)
-                      }
-                      disabled={isSubmitting}
-                      //make width fit
-                    >
-                      <SelectTrigger className="w-full bg-white/10 border-white/20 text-white backdrop-blur-sm data-[placeholder]:text-blue-300">
-                        <SelectValue placeholder="Select practice size" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="1">1 Practitioner</SelectItem>
-                        <SelectItem value="2-5">2-5 Practitioners</SelectItem>
-                        <SelectItem value="6-10">6-10 Practitioners</SelectItem>
-                        <SelectItem value="11-25">
-                          11-25 Practitioners
-                        </SelectItem>
-                        <SelectItem value="25+">25+ Practitioners</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-white">
-                      Message
-                    </Label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => handleChange("message", e.target.value)}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-blue-300 backdrop-blur-sm min-h-[120px]"
-                      placeholder="Tell us about your current billing challenges or what services you're interested in..."
-                      disabled={isSubmitting}
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-amber-500 to-amber-400 text-white py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 backdrop-blur-sm border border-amber-300/30 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Clock className="w-5 h-5 mr-2 animate-spin" />
-                        Submitting...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5 mr-2" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
-              ) : (
-                <div className="text-center py-12">
-                  <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    Thank You!
-                  </h3>
-                  <p className="text-blue-200 leading-relaxed">
-                    Your message has been sent successfully. We&apos;ll contact
-                    you within 24 hours to discuss your medical billing needs.
-                  </p>
-                </div>
-              )}
+              <div
+                className="breely-inline min-h-[600px]"
+                data-url="https://storm-technologies-inc.breely.com/form/14180"
+              />
             </div>
 
-            {/* Additional Info */}
-            <div className="space-y-8">
-              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-300">
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Why Contact Us?
+            {/* Additional Info / Features */}
+            <div className="lg:pt-12 space-y-12">
+              <div>
+                <h3 className="text-2xl font-bold text-[#1a365d] mb-8">
+                  Why Storm Technologies?
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-10">
                   {[
                     {
-                      title: "Free Consultation",
-                      desc: "No obligation assessment of your current billing processes",
+                      title: "Free Evaluation",
+                      desc: "Comprehensive assessment of your current aging and billing performance.",
+                      icon: Award,
                     },
                     {
-                      title: "Custom Solutions",
-                      desc: "Tailored billing services designed for your practice's unique needs",
+                      title: "Rapid Implementation",
+                      desc: "Most practices are fully integrated and running within 15-30 days.",
+                      icon: Star,
                     },
                     {
-                      title: "Quick Response",
-                      desc: "We respond to all inquiries within 24 hours",
+                      title: "Guaranteed Compliance",
+                      desc: "Full HIPAA compliance and strict adherence to federal and state regulations.",
+                      icon: Shield,
                     },
-                    {
-                      title: "30+ Years Experience",
-                      desc: "Decades of expertise in medical billing and revenue optimization",
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="flex items-start space-x-4"
-                    >
-                      <CheckCircle className="w-6 h-6 text-teal-400 mt-1 flex-shrink-0" />
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start space-x-6">
+                      <div className="icon-standalone teal mt-1">
+                        <item.icon size={28} />
+                      </div>
                       <div>
-                        <h4 className="text-white font-semibold">
+                        <h4 className="text-[#1a365d] font-bold text-lg mb-2">
                           {item.title}
                         </h4>
-                        <p className="text-blue-200 text-sm">{item.desc}</p>
+                        <p className="text-slate-500 font-light leading-relaxed">
+                          {item.desc}
+                        </p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-amber-500/20 to-teal-500/20 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    Emergency Support
-                  </h3>
-                  <p className="text-blue-200 mb-6">
-                    Need immediate assistance with billing issues?
-                  </p>
-                  <a
-                    href="tel:+18322363930"
-                    className="inline-block bg-gradient-to-r from-amber-500 to-amber-400 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <Phone className="w-5 h-5 inline mr-2" />
-                    Call Now: 832-236-3930
-                  </a>
-                </div>
+              <div className="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
+                <h4 className="text-xl font-bold text-[#1a365d] mb-4">
+                  Immediate Assistance
+                </h4>
+                <p className="text-slate-500 font-light mb-8">
+                  Need to speak with an expert right away?
+                </p>
+                <a
+                  href="tel:832-236-3930"
+                  className="inline-flex items-center space-x-4 group"
+                >
+                  <div className="w-14 h-14 bg-[#1a365d] rounded-full flex items-center justify-center text-white group-hover:bg-[#0d9488] transition-colors">
+                    <Phone size={24} />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-[#1a365d] font-bold text-2xl tracking-tight">
+                      832-236-3930
+                    </div>
+                    <div className="text-slate-400 text-xs font-bold uppercase tracking-widest mt-1">
+                      Available 8am - 6pm CST
+                    </div>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Map or Additional CTA */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-amber-500/20 to-teal-500/20 backdrop-blur-xl border border-white/20 rounded-3xl p-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Located in Houston, Serving Nationwide
+      {/* Locations Section */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
+        <div className="max-w-7xl mx-auto">
+          <div className="card-aetna !bg-[#1a365d] p-12 md:p-20 text-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 relative z-10 leading-tight">
+              Located in Houston, <br />
+              <span className="text-[#0d9488]">Serving Nationwide</span>
             </h2>
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              Based in Houston, Texas, but serving medical practices across the
-              United States with our comprehensive billing solutions.
+            <p className="text-xl text-white/70 mb-12 max-w-2xl mx-auto font-light leading-relaxed relative z-10">
+              Based in Houston, Texas, we serve medical practices across all 50
+              states with our comprehensive billing solutions.
             </p>
 
-            <div className="flex items-center justify-center space-x-3 text-blue-200">
-              <MapPin className="w-5 h-5" />
-              <span className="font-medium">
+            <div className="inline-flex items-center space-x-4 bg-white/10 px-8 py-4 rounded-full text-white relative z-10 border border-white/10">
+              <MapPin size={22} className="text-[#0d9488]" />
+              <span className="font-medium text-white">
                 502 Bridge Crest Blvd., Houston, TX 77082
               </span>
             </div>
@@ -453,3 +287,4 @@ export default function ContactPage() {
     </div>
   );
 }
+
