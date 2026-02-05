@@ -56,7 +56,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-20 bg-white">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-20 background-sky">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {SERVICES.map((service, index) => (
@@ -88,7 +88,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-slate-50/50">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#1a365d] mb-4">
@@ -103,7 +103,7 @@ export default function ServicesPage() {
             {PROCESS_STEPS.map((process, index) => (
               <div key={index} className="text-center group">
                 <div className="card-aetna p-10 h-full relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 text-slate-100 text-5xl font-black italic select-none">
+                  <div className="absolute top-0 right-0 p-4 text-sky-400 text-5xl font-black italic select-none">
                     0{process.step}
                   </div>
                   <div className="icon-standalone amber mb-8">
@@ -123,7 +123,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-white">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -157,7 +157,7 @@ export default function ServicesPage() {
                       <h3 className="text-[#1a365d] font-bold text-lg mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-slate-600 font-light">{item.desc}</p>
+                      <p className="text-sky-600 font-light">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -192,7 +192,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-20 bg-slate-50">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-20 background-sky">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-[#1a365d] to-[#042f2e] rounded-[3rem] p-12 md:p-16 text-center text-white shadow-2xl overflow-hidden">
             <h2 className="text-4xl font-bold mb-6">

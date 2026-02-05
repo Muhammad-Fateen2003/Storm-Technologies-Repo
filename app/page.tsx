@@ -87,7 +87,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-blue">
       {/* Hero Section - Cleaner Aetna Style */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-32 hero-brand-strip overflow-hidden">
         {/* Subtle decorative elements */}
@@ -190,7 +190,7 @@ export default function HomePage() {
       </section>
 
       {/* Company Highlight Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-slate-50/50">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -209,11 +209,11 @@ export default function HomePage() {
               </p>
 
               <div className="grid sm:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                <div className="bg-[#d9f1f9] p-6 rounded-2xl border border-slate-100 shadow-sm">
                   <div className="text-4xl font-bold text-[#0d9488] mb-1">98%</div>
                   <div className="text-slate-500 font-medium">Collection Success</div>
                 </div>
-                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                <div className="bg-[#d9f1f9] p-6 rounded-2xl border border-slate-100 shadow-sm">
                   <div className="text-4xl font-bold text-[#1a365d] mb-1">30+</div>
                   <div className="text-slate-500 font-medium">Years Experience</div>
                 </div>
@@ -230,8 +230,8 @@ export default function HomePage() {
                   <Link
                     key={index}
                     href={`/services/${service.slug}`}
-                    className="flex items-center space-x-3 bg-white border border-slate-100 rounded-xl p-4 shadow-sm hover:border-[#0d9488] transition-colors group"
-                  >
+                    className="flex items-center space-x-3 bg-[#d9f1f9] border border-slate-100 rounded-xl p-4 shadow-sm hover:border-[#c5dae2] transition-colors group"
+                  > 
                     <div className="w-2 h-2 rounded-full bg-[#0d9488]" />
                     <span className="text-slate-700 font-medium group-hover:text-[#1a365d]">{service.name}</span>
                   </Link>
@@ -251,7 +251,7 @@ export default function HomePage() {
       </section>
 
       {/* Benefits Section - Professional Aetna Style Cards */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-white">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#1a365d] mb-4">
@@ -283,7 +283,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section - Professional & Focused */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-20 bg-slate-50">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-20 background-sky">
         <div className="max-w-5xl mx-auto">
           <div className="bg-[#1a365d] rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
             {/* Decorative background circle */}

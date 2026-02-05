@@ -11,7 +11,7 @@ export default function ServicePageTemplate({ slug }: { slug: string }) {
     }
 
     return (
-        <div className="bg-white min-h-screen">
+        <div className="background-sky min-h-screen">
             {/* Hero Section */}
             <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-20 hero-brand-strip overflow-hidden">
                 <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
@@ -35,7 +35,7 @@ export default function ServicePageTemplate({ slug }: { slug: string }) {
             </section>
 
             {/* Content Section */}
-            <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-white">
+            <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-20 items-start">
                         <div>
@@ -82,7 +82,7 @@ export default function ServicePageTemplate({ slug }: { slug: string }) {
             </section>
 
             {/* Other Services Bottom CTA */}
-            <section className="bg-slate-50 py-20 border-t border-slate-100">
+            <section className="background-sky py-20 border-t border-sky-200">
                 <div className="max-w-7xl mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold text-[#1a365d] mb-6">Explore Our Other Solutions</h2>
                     <div className="flex flex-wrap justify-center gap-4">
@@ -90,7 +90,7 @@ export default function ServicePageTemplate({ slug }: { slug: string }) {
                             <Link
                                 key={s.slug}
                                 href={`/services/${s.slug}`}
-                                className="bg-white border border-slate-200 px-6 py-3 rounded-full text-[#1a365d] font-bold hover:border-[#0d9488] hover:text-[#0d9488] transition-all shadow-sm"
+                                className="bg-sky-300 border border-sky-400 px-6 py-3 rounded-full text-[#1a365d] font-bold hover:border-[#0d9488] hover:text-[#0d9488] transition-all shadow-sm"
                             >
                                 {s.title}
                             </Link>

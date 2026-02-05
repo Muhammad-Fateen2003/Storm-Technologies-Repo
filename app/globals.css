@@ -48,14 +48,14 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(31.763% 0.11371 268.007);
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: oklch(50.458% 0.03409 18.254);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary-foreground: oklch(48.231% 0.102 21.564);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -83,7 +83,7 @@
 
 .dark {
   --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --foreground: oklch(72.193% 0.00008 271.152);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -128,36 +128,46 @@
 /* Professional Theme - Aetna-Style */
 :root {
   /* Storm Technologies Brand Colors */
-  --storm-navy: #1a365d;
+  --storm-navy: #1c293b;
   --storm-navy-light: #2c5282;
-  --storm-teal: #0d9488;
+  --storm-teal: #0b6e66;
   --storm-amber: #d69e2e;
   --storm-amber-light: #ecc94b;
 
   /* Professional UI Colors */
-  --pro-bg: #ffffff;
-  --pro-bg-light: #f8fafc;
-  --pro-bg-gray: #f1f5f9;
-  --pro-text: #1e293b;
-  --pro-text-muted: #64748b;
-  --pro-border: #e2e8f0;
-  --pro-border-light: #f1f5f9;
 
-  /* Shadow tokens */
+  --pro-text: #3c4758;
+  --pro-text-muted: #64748b;
+
+  /* Excess Code 
+  --pro-border: #e2e8f0;
+  --pro-border-light: #f1f5f9;  
+  --pro-bg: #d6d6d6;
+  --pro-bg-light: #ffffff;
+  --pro-bg-gray: #f1f5f9;
+  
+   Shadow tokens
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
   --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
   --shadow-aetna: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  Also Excess 
 
-  /* Icon sizes */
+   Icon sizes 
   --icon-size-sm: 1.25rem;
   --icon-size-md: 1.5rem;
   --icon-size-lg: 2rem;
+  Also ALSO Excess LOL */
 }
 
 /* Professional Card Styling - Aetna Style */
+
+.background-sky{
+  background-color: #b8e6fe;
+}
+
 .card-aetna {
-  background-color: #ffffff;
+  background-color: #d9f1f9;
   border: 1px solid #e2e8f0;
   border-radius: 1.25rem;
   box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.1);
@@ -191,8 +201,12 @@
 }
 
 /* Section backgrounds */
+.section {
+  background: #454f69
+}
+
 .section-light {
-  background: #ffffff;
+  background: #7f92c5;
 }
 
 .section-soft {
@@ -201,7 +215,7 @@
 
 .section-navy {
   background: var(--storm-navy);
-  color: white;
+  color: rgb(178, 240, 255);
 }
 
 .hero-brand-strip {
@@ -249,7 +263,7 @@
 /* Navigation bar strip */
 .nav-strip {
   background: var(--storm-navy);
-  color: white;
+  color: rgb(163, 170, 233);
 }
 
 /* Professional link styling */

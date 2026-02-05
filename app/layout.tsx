@@ -112,7 +112,7 @@ export default function RootLayout({
         <div className="pt-24 min-h-screen">{children}</div>
 
         {/* Professional Footer */}
-        <footer className="bg-white border-t border-slate-100 pt-24">
+        <footer className="bg-blue border-t border-slate-100 pt-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
               {/* Brand Column */}

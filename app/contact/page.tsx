@@ -164,11 +164,11 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information Cards - Infinite Carousel */}
-      <section id="contact-info" className="relative py-16 bg-white overflow-hidden border-b border-slate-50 scroll-mt-24">
+      <section id="contact-info" className="relative py-16 background-sky overflow-hidden border-b border-sky-200 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 mb-10">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-bold text-[#1a365d] uppercase tracking-[0.2em]">Contact Channels</h2>
-            <div className="h-px flex-1 bg-slate-100 ml-8" />
+            <div className="h-px flex-1 bg-sky-200 ml-8" />
           </div>
         </div>
 
@@ -225,13 +225,13 @@ export default function ContactPage() {
           </motion.div>
 
           {/* Faded edges for better premium feel */}
-          <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-sky-to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-sky-to-transparent z-10 pointer-events-none" />
         </div>
       </section>
 
       {/* Form and Info Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-white">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-16 background-sky">
         <div className="max-w-7xl mx-auto">
           <div id="contact-form" className="grid lg:grid-cols-2 gap-16 items-start scroll-mt-24">
             {/* Contact Form */}
@@ -453,7 +453,7 @@ export default function ContactPage() {
       </section>
 
       {/* Locations Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-white">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
         <div className="max-w-7xl mx-auto">
           <div className="card-aetna !bg-[#1a365d] p-12 md:p-20 text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />

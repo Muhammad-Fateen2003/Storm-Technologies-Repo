@@ -38,7 +38,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-blue">
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-20 hero-brand-strip overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
@@ -58,7 +58,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story / Founder Note */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-slate-50/50">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
@@ -82,7 +82,7 @@ export default function AboutPage() {
                 </div>
               </div>
               {/* Decorative background element */}
-              <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-slate-100 rounded-[2.5rem] z-0" />
+              <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-sky-200 rounded-[2.5rem] z-0" />
             </div>
 
             <div className="grid gap-8">
@@ -116,7 +116,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-white">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#1a365d] mb-4">Core Values</h2>
@@ -145,7 +145,7 @@ export default function AboutPage() {
       </section>
 
       {/* Achievements Grid Area - Infinite Carousel */}
-      <section className="relative py-16 bg-white overflow-hidden border-t border-b border-slate-50">
+      <section className="relative py-16 background-sky overflow-hidden border-t border-b border-sky-200">
         <div className="relative flex select-none">
           <motion.div
             className="flex space-x-24 whitespace-nowrap"
@@ -180,13 +180,13 @@ export default function AboutPage() {
           </motion.div>
 
           {/* Faded edges */}
-          <div className="absolute top-0 left-0 h-full w-48 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute top-0 right-0 h-full w-48 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 h-full w-48 bg-gradient-to-r from-sky-200 to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 h-full w-48 bg-gradient-to-l from-sky-200 to-transparent z-10 pointer-events-none" />
         </div>
       </section>
 
       {/* CTA section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-20 bg-slate-50">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-20 background-sky">
         <div className="max-w-5xl mx-auto">
           <div className="bg-[#1a365d] rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">

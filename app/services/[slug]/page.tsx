@@ -19,9 +19,9 @@ export default async function ServicePage({ params }: { params: { slug: string }
     const Icon = service.icon;
 
     return (
-        <div className="bg-white min-h-screen">
+        <div className="background-sky min-h-screen">
             {/* Service Hero */}
-            <section className="relative px-4 sm:px-6 lg:px-8 pt-32 pb-24 bg-slate-50 overflow-hidden">
+            <section className="relative px-4 sm:px-6 lg:px-8 pt-32 pb-24 background-sky overflow-hidden">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
                 <div className="max-w-7xl mx-auto relative z-10">
@@ -65,7 +65,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
             </section>
 
             {/* Benefits / Value Section */}
-            <section className="relative px-4 sm:px-6 lg:px-8 py-24 bg-white">
+            <section className="relative px-4 sm:px-6 lg:px-8 py-24 background-sky">
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="text-4xl font-bold text-[#1a365d] mb-16">Why Storm Technologies for <br /> {service.title}?</h2>
 
@@ -94,7 +94,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
             </section>
 
             {/* Service CTA */}
-            <section className="relative px-4 sm:px-6 lg:px-8 py-20 bg-slate-50">
+            <section className="relative px-4 sm:px-6 lg:px-8 py-20 background-sky">
                 <div className="max-w-5xl mx-auto">
                     <div className="bg-[#1a365d] rounded-[3rem] p-12 md:p-20 text-center text-white relative shadow-2xl overflow-hidden">
                         <h2 className="text-4xl font-bold mb-8">Ready to Optimize Your Practice?</h2>
