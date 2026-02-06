@@ -185,15 +185,14 @@ export default function ContactPage() {
           <div className="max-w-7xl mx-auto">
             <div id="contact-form" className="grid lg:grid-cols-2 gap-16 items-start scroll-mt-24">
               {/* Contact Form */}
-              <div className="card-aetna p-10 md:p-12 bg-white relative">
+              <div className="card-aetna px-4 py-8 sm:p-10 md:p-12 bg-white relative">
                 <div className="absolute top-0 left-0 w-2 h-full bg-[#1a365d] rounded-l-2xl" />
 
                 <h2 className="text-3xl font-bold text-[#1a365d] mb-6">
                   Free Assessment
                 </h2>
                 <p className="text-slate-500 mb-10 leading-relaxed font-light">
-                  Fill out the form below and we&apos;ll contact you within 24
-                  hours to discuss how we can optimize your revenue cycle.
+                  Fill out the form below and we&apos;ll contact you to discuss how we can optimize your revenue cycle.
                 </p>
 
                 <div
