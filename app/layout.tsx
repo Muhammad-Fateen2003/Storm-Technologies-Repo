@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Shield, Users, Linkedin } from "lucide-react";
 import NavLinks from "./nav-links";
+import NavbarClient from "./navbar-client";
 
 // If you want per-page titles/descriptions, you can adjust this.
 export const metadata: Metadata = {
@@ -43,70 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen bg-white">
         {/* Professional Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
-          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-            <div className="relative flex justify-between items-center h-24">
-              {/* Logo - Premium Presentation */}
-              <Link href="/" className="flex items-center space-x-4 group relative z-20">
-                <div className="w-13 h-13 relative flex-shrink-0 transition-transform group-hover:scale-105 duration-300">
-                  <Image
-                    src="/logo.png"
-                    alt="Storm Technologies Logo"
-                    width={56}
-                    height={56}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="border-l border-slate-50 pl-4 py-1">
-                  <div className="text-xl md:text-2xl font-bold text-[#1a365d] tracking-tight leading-none mb-1">
-                    Storm Technologies
-                  </div>
-                  <div className="text-[10px] text-[#0d9488] font-bold uppercase tracking-[0.2em]">
-                    Medical Billing Excellence
-                  </div>
-                </div>
-              </Link>
-
-              {/* Centered Desktop Nav */}
-              <div className="hidden md:absolute md:inset-0 md:flex md:items-center md:justify-center pointer-events-none">
-                <div className="flex items-center pointer-events-auto">
-                  <NavLinks items={navigationItems} variant="desktop" />
-                </div>
-              </div>
-
-              {/* Desktop Actions */}
-              <div className="hidden md:flex items-center relative z-20">
-                <div className="h-10 w-px bg-slate-50 mx-4" />
-
-                <div className="flex items-center space-x-8 ml-4">
-                  <a
-                    href="tel:832-236-3930"
-                    className="flex flex-col items-end group"
-                  >
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-0.5 group-hover:text-[#1a365d] transition-colors">Call Support</span>
-                    <span className="text-[#1a365d] font-bold text-lg group-hover:text-[#0d9488] transition-colors">832-236-3930</span>
-                  </a>
-
-                  <Link
-                    href="/contact#contact-form"
-                    className="bg-[#1a365d] text-white px-7 py-3 rounded-xl font-bold shadow-xl shadow-blue-900/10 hover:bg-[#2c5282] transition-all duration-300 text-sm"
-                  >
-                    Get Started
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-
-        {/* Mobile Navigation */}
-        <div className="md:hidden fixed bottom-6 left-6 right-6 z-50">
-          <div className="bg-[#1a365d] rounded-2xl border border-white/10 shadow-2xl p-4 backdrop-blur-lg">
-            <div className="flex justify-around">
-              <NavLinks items={navigationItems} variant="mobile" />
-            </div>
-          </div>
-        </div>
+        <NavbarClient items={navigationItems} />
 
         {/* Page content with proper spacing for fixed header */}
         <div className="pt-24 min-h-screen">{children}</div>
